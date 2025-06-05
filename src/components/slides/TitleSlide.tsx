@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Volume2, Mic, Waveform } from 'lucide-react';
+import { Volume2, Mic, AudioWaveform } from 'lucide-react';
 
 const TitleSlide = () => {
   return (
@@ -8,7 +8,7 @@ const TitleSlide = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20">
-          <Waveform className="h-32 w-32 animate-pulse" />
+          <AudioWaveform className="h-32 w-32 animate-pulse" />
         </div>
         <div className="absolute bottom-20 right-20">
           <Mic className="h-24 w-24 animate-bounce" style={{ animationDuration: '3s' }} />

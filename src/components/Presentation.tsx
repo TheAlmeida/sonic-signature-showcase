@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Volume2, Cpu, Database, BarChart3, Target, CheckCircle, ArrowRight, Mic, Waveform, Settings, Search, Clock, TrendingUp, Users, Lightbulb, MessageCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Volume2, Cpu, Database, BarChart3, Target, CheckCircle, ArrowRight, Mic, AudioWaveform, Settings, Search, Clock, TrendingUp, Users, Lightbulb, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import TitleSlide from './slides/TitleSlide';
 import AgendaSlide from './slides/AgendaSlide';

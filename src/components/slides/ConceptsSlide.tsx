@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Waveform, Settings, Hash, Search, ArrowRight, Mic, Database, CheckCircle } from 'lucide-react';
+import { AudioWaveform, Settings, Hash, Search, ArrowRight, Mic, Database, CheckCircle } from 'lucide-react';
 
 const ConceptsSlide = () => {
   const steps = [
@@ -17,7 +17,7 @@ const ConceptsSlide = () => {
       color: 'bg-green-500'
     },
     {
-      icon: Waveform,
+      icon: AudioWaveform,
       title: 'Feature Extraction',
       description: 'Spectral analysis, MFCC, etc.',
       color: 'bg-purple-500'
@@ -109,7 +109,7 @@ const ConceptsSlide = () => {
           <div className="grid grid-cols-3 gap-6">
             <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-in-left">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Waveform className="h-6 w-6 text-blue-600" />
+                <AudioWaveform className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="text-lg font-semibold text-presentation-text mb-3">
                 Feature Extraction
