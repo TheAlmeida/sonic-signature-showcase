@@ -31,24 +31,39 @@ const slides = [
 const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const nextSlide = () => {
-    if (currentSlide < slides.length - 1) {
-      setCurrentSlide(currentSlide + 1);
-      setAnimationKey(prev => prev + 1);
+    if (currentSlide < slides.length - 1 && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentSlide(currentSlide + 1);
+        setAnimationKey(prev => prev + 1);
+        setIsTransitioning(false);
+      }, 200);
     }
   };
 
   const prevSlide = () => {
-    if (currentSlide > 0) {
-      setCurrentSlide(currentSlide - 1);
-      setAnimationKey(prev => prev + 1);
+    if (currentSlide > 0 && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentSlide(currentSlide - 1);
+        setAnimationKey(prev => prev + 1);
+        setIsTransitioning(false);
+      }, 200);
     }
   };
 
   const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    setAnimationKey(prev => prev + 1);
+    if (index !== currentSlide && !isTransitioning) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentSlide(index);
+        setAnimationKey(prev => prev + 1);
+        setIsTransitioning(false);
+      }, 200);
+    }
   };
 
   // Keyboard navigation
@@ -70,13 +85,13 @@ const Presentation = () => {
   return (
     <div className="h-screen bg-gradient-to-br from-slate-50 to-blue-50 font-inter overflow-hidden">
       {/* Navigation Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-200">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
         <div className="flex items-center justify-between px-6 py-3">
           <div className="flex items-center space-x-4">
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-600 animate-fade-in">
               {currentSlide + 1} / {slides.length}
             </div>
-            <div className="text-sm font-medium text-gray-800">
+            <div className="text-sm font-medium text-gray-800 animate-fade-in-right" style={{ animationDelay: '0.1s' }}>
               {slides[currentSlide].title}
             </div>
           </div>
@@ -86,7 +101,8 @@ const Presentation = () => {
               variant="ghost"
               size="sm"
               onClick={prevSlide}
-              disabled={currentSlide === 0}
+              disabled={currentSlide === 0 || isTransitioning}
+              className="hover:bg-gray-100 transition-colors duration-200"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -94,7 +110,8 @@ const Presentation = () => {
               variant="ghost"
               size="sm"
               onClick={nextSlide}
-              disabled={currentSlide === slides.length - 1}
+              disabled={currentSlide === slides.length - 1 || isTransitioning}
+              className="hover:bg-gray-100 transition-colors duration-200"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -104,7 +121,7 @@ const Presentation = () => {
         {/* Progress Bar */}
         <div className="h-1 bg-gray-200">
           <div 
-            className="h-full bg-presentation-primary transition-all duration-300"
+            className="h-full bg-presentation-primary transition-all duration-500 ease-out"
             style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
           />
         </div>
@@ -117,7 +134,8 @@ const Presentation = () => {
             <button
               key={index}
               onClick={() => goToSlide(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-200 ${
+              disabled={isTransitioning}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 index === currentSlide 
                   ? 'bg-presentation-primary scale-125' 
                   : 'bg-gray-300 hover:bg-gray-400'
@@ -129,7 +147,12 @@ const Presentation = () => {
 
       {/* Main Slide Area */}
       <div className="pt-16 h-full">
-        <div key={animationKey} className="h-full animate-fade-in">
+        <div 
+          key={animationKey} 
+          className={`h-full transition-opacity duration-500 ease-out ${
+            isTransitioning ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
           <CurrentSlideComponent />
         </div>
       </div>

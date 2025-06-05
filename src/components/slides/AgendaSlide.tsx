@@ -18,11 +18,11 @@ const AgendaSlide = () => {
     <div className="h-full bg-gradient-to-br from-white to-slate-50 py-8 px-12">
       <div className="max-w-6xl mx-auto h-full flex flex-col">
         {/* Header */}
-        <div className="text-center mb-12 animate-slide-in-up">
+        <div className="text-center mb-12 animate-fade-in-down">
           <h1 className="text-5xl font-bold text-presentation-text font-montserrat mb-4">
             Presentation Agenda
           </h1>
-          <p className="text-xl text-presentation-text-light">
+          <p className="text-xl text-presentation-text-light animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             A comprehensive overview of the audio fingerprinting analysis project
           </p>
         </div>
@@ -34,12 +34,12 @@ const AgendaSlide = () => {
             return (
               <div
                 key={index}
-                className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 group animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 group animate-fade-in-up"
+                style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-presentation-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 bg-presentation-primary rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                       <Icon className="h-6 w-6 text-white" />
                     </div>
                   </div>
@@ -58,7 +58,7 @@ const AgendaSlide = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-8 animate-fade-in" style={{ animationDelay: '1s' }}>
+        <div className="text-center mt-8 animate-fade-in" style={{ animationDelay: '2.8s' }}>
           <div className="inline-flex items-center space-x-2 bg-presentation-primary text-white px-6 py-3 rounded-full">
             <span className="text-sm font-medium">Total Duration: ~45 minutes</span>
           </div>

@@ -16,11 +16,11 @@ const ResultsSlide = () => {
     <div className="h-full bg-gradient-to-br from-white to-gray-50 py-8 px-12">
       <div className="max-w-7xl mx-auto h-full">
         {/* Header */}
-        <div className="text-center mb-8 animate-slide-in-up">
+        <div className="text-center mb-8 animate-fade-in-down">
           <h1 className="text-5xl font-bold text-presentation-text font-montserrat mb-4">
             Experimental Results
           </h1>
-          <p className="text-xl text-presentation-text-light">
+          <p className="text-xl text-presentation-text-light animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
             Comprehensive performance analysis across all metrics
           </p>
         </div>
@@ -28,22 +28,25 @@ const ResultsSlide = () => {
         {/* Charts Grid */}
         <div className="grid grid-cols-2 gap-8 h-4/5">
           {/* Precision Chart */}
-          <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-in-left">
-            <div className="flex items-center mb-4">
+          <div className="bg-white rounded-xl shadow-lg p-6 animate-fade-in-left" style={{ animationDelay: '0.6s' }}>
+            <div className="flex items-center mb-4 animate-fade-in-up" style={{ animationDelay: '0.9s' }}>
               <Target className="h-6 w-6 text-blue-600 mr-3" />
               <h3 className="text-xl font-bold text-presentation-text">Precision (%)</h3>
             </div>
             <div className="space-y-3">
               {results.map((result, index) => (
-                <div key={index} className="animate-slide-in-right" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${1.2 + index * 0.2}s` }}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium text-presentation-text">{result.name}</span>
                     <span className="text-sm font-bold text-presentation-text">{result.precision}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className={`h-2 rounded-full ${result.color} transition-all duration-1000 ease-out`}
-                      style={{ width: `${result.precision}%` }}
+                      className={`h-2 rounded-full ${result.color} animate-progress-fill`}
+                      style={{ 
+                        '--progress-width': `${result.precision}%`,
+                        animationDelay: `${1.4 + index * 0.2}s`
+                      } as React.CSSProperties}
                     ></div>
                   </div>
                 </div>
@@ -52,22 +55,25 @@ const ResultsSlide = () => {
           </div>
 
           {/* Recall Chart */}
-          <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-in-right">
-            <div className="flex items-center mb-4">
+          <div className="bg-white rounded-xl shadow-lg p-6 animate-fade-in-right" style={{ animationDelay: '0.8s' }}>
+            <div className="flex items-center mb-4 animate-fade-in-up" style={{ animationDelay: '1.1s' }}>
               <TrendingUp className="h-6 w-6 text-green-600 mr-3" />
               <h3 className="text-xl font-bold text-presentation-text">Recall (%)</h3>
             </div>
             <div className="space-y-3">
               {results.map((result, index) => (
-                <div key={index} className="animate-slide-in-left" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${1.4 + index * 0.2}s` }}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium text-presentation-text">{result.name}</span>
                     <span className="text-sm font-bold text-presentation-text">{result.recall}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className={`h-2 rounded-full ${result.color} transition-all duration-1000 ease-out`}
-                      style={{ width: `${result.recall}%`, animationDelay: `${index * 0.1}s` }}
+                      className={`h-2 rounded-full ${result.color} animate-progress-fill`}
+                      style={{ 
+                        '--progress-width': `${result.recall}%`,
+                        animationDelay: `${1.6 + index * 0.2}s`
+                      } as React.CSSProperties}
                     ></div>
                   </div>
                 </div>
@@ -76,22 +82,25 @@ const ResultsSlide = () => {
           </div>
 
           {/* Execution Time Chart */}
-          <div className="bg-white rounded-xl shadow-lg p-6 animate-scale-in" style={{ animationDelay: '0.4s' }}>
-            <div className="flex items-center mb-4">
+          <div className="bg-white rounded-xl shadow-lg p-6 animate-fade-in-left" style={{ animationDelay: '1.0s' }}>
+            <div className="flex items-center mb-4 animate-fade-in-up" style={{ animationDelay: '1.3s' }}>
               <Clock className="h-6 w-6 text-orange-600 mr-3" />
               <h3 className="text-xl font-bold text-presentation-text">Execution Time (ms)</h3>
             </div>
             <div className="space-y-3">
               {results.map((result, index) => (
-                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1 + 0.4}s` }}>
+                <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${1.6 + index * 0.2}s` }}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium text-presentation-text">{result.name}</span>
                     <span className="text-sm font-bold text-presentation-text">{result.time}ms</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className={`h-2 rounded-full ${result.color} transition-all duration-1000 ease-out`}
-                      style={{ width: `${(400 - result.time) / 4}%` }}
+                      className={`h-2 rounded-full ${result.color} animate-progress-fill`}
+                      style={{ 
+                        '--progress-width': `${(400 - result.time) / 4}%`,
+                        animationDelay: `${1.8 + index * 0.2}s`
+                      } as React.CSSProperties}
                     ></div>
                   </div>
                 </div>
@@ -100,22 +109,25 @@ const ResultsSlide = () => {
           </div>
 
           {/* Memory Usage Chart */}
-          <div className="bg-white rounded-xl shadow-lg p-6 animate-scale-in" style={{ animationDelay: '0.6s' }}>
-            <div className="flex items-center mb-4">
+          <div className="bg-white rounded-xl shadow-lg p-6 animate-fade-in-right" style={{ animationDelay: '1.2s' }}>
+            <div className="flex items-center mb-4 animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
               <Database className="h-6 w-6 text-purple-600 mr-3" />
               <h3 className="text-xl font-bold text-presentation-text">Memory Usage (MB)</h3>
             </div>
             <div className="space-y-3">
               {results.map((result, index) => (
-                <div key={index} className="animate-fade-in" style={{ animationDelay: `${index * 0.1 + 0.6}s` }}>
+                <div key={index} className="animate-fade-in-up" style={{ animationDelay: `${1.8 + index * 0.2}s` }}>
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-sm font-medium text-presentation-text">{result.name}</span>
                     <span className="text-sm font-bold text-presentation-text">{result.memory}MB</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div 
-                      className={`h-2 rounded-full ${result.color} transition-all duration-1000 ease-out`}
-                      style={{ width: `${(250 - result.memory) / 2.5}%` }}
+                      className={`h-2 rounded-full ${result.color} animate-progress-fill`}
+                      style={{ 
+                        '--progress-width': `${(250 - result.memory) / 2.5}%`,
+                        animationDelay: `${2.0 + index * 0.2}s`
+                      } as React.CSSProperties}
                     ></div>
                   </div>
                 </div>
