@@ -81,44 +81,46 @@ const AlgorithmsSlide = () => {
   };
 
   return (
-    <div className="h-full relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-50">
-      {/* Code Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 font-mono text-xs leading-relaxed p-4 overflow-hidden">
-          <div className="text-blue-600">
-            function audioFingerprint(signal) {{'{'}<br/>
-            &nbsp;&nbsp;const features = extractFeatures(signal);<br/>
-            &nbsp;&nbsp;const hash = generateHash(features);<br/>
-            &nbsp;&nbsp;return hash;<br/>
-            {'}'}
-          </div>
-        </div>
+    <div className="h-full relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
+      {/* Digital Circuit Background */}
+      <div className="absolute inset-0 opacity-10">
+        <svg className="w-full h-full" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="circuit" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <circle cx="40" cy="40" r="2" fill="#60a5fa" />
+              <path d="M20,40 L60,40 M40,20 L40,60" stroke="#60a5fa" strokeWidth="1" opacity="0.6" />
+              <circle cx="20" cy="20" r="1.5" fill="#3b82f6" />
+              <circle cx="60" cy="60" r="1.5" fill="#3b82f6" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#circuit)" />
+        </svg>
       </div>
 
-      {/* Floating Code Elements */}
+      {/* Floating Algorithm Icons */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-20 animate-gentle-float opacity-15">
-          <Code className="h-16 w-16 text-indigo-500" />
+        <div className="absolute top-20 right-20 animate-gentle-float opacity-20">
+          <Code className="h-16 w-16 text-blue-400" />
         </div>
-        <div className="absolute bottom-32 left-16 animate-gentle-float opacity-12" style={{ animationDelay: '2s' }}>
-          <Shield className="h-14 w-14 text-green-500" />
+        <div className="absolute bottom-32 left-16 animate-gentle-float opacity-15" style={{ animationDelay: '2s' }}>
+          <Shield className="h-14 w-14 text-indigo-400" />
         </div>
         <div className="absolute top-1/3 right-16 animate-gentle-float opacity-18" style={{ animationDelay: '4s' }}>
-          <Globe className="h-12 w-12 text-blue-500" />
+          <Globe className="h-12 w-12 text-cyan-400" />
         </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto h-full py-8 px-12">
         {/* Enhanced Header */}
         <div className="text-center mb-8 animate-slide-in-up">
-          <div className="inline-flex items-center space-x-2 bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium mb-4 animate-fade-in">
+          <div className="inline-flex items-center space-x-2 bg-blue-500/20 backdrop-blur-sm text-blue-300 px-4 py-2 rounded-full text-sm font-medium mb-4 animate-fade-in border border-blue-400/30">
             <Code className="h-4 w-4" />
             <span>Algorithm Analysis</span>
           </div>
-          <h1 className="text-5xl font-bold text-presentation-text font-montserrat mb-4 animate-slide-in-down" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-5xl font-bold text-white font-montserrat mb-4 animate-slide-in-down" style={{ animationDelay: '0.2s' }}>
             Analyzed Algorithms
           </h1>
-          <p className="text-xl text-presentation-text-light animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="text-xl text-blue-200 animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Comprehensive evaluation of commercial and open-source solutions
           </p>
         </div>
@@ -130,11 +132,11 @@ const AlgorithmsSlide = () => {
             return (
               <div
                 key={index}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 animate-scale-in relative overflow-hidden group"
+                className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200 animate-scale-in relative overflow-hidden group"
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
               >
                 {/* Card Background Accent */}
-                <div className={`absolute top-0 left-0 right-0 h-1 bg-${algorithm.accentColor}-500`}></div>
+                <div className={`absolute top-0 left-0 right-0 h-1 ${algorithm.color.replace('bg-', 'bg-')}`}></div>
                 
                 {/* Header */}
                 <div className="flex items-center mb-4">
@@ -142,7 +144,7 @@ const AlgorithmsSlide = () => {
                     <Icon className="h-7 w-7 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-lg font-bold text-presentation-text">
+                    <h3 className="text-lg font-bold text-gray-900">
                       {algorithm.name}
                     </h3>
                     <span className={`text-xs px-2 py-1 rounded-full font-medium ${
@@ -156,7 +158,7 @@ const AlgorithmsSlide = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-presentation-text-light text-sm mb-4 leading-relaxed">
+                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   {algorithm.description}
                 </p>
 
@@ -187,14 +189,14 @@ const AlgorithmsSlide = () => {
 
                 {/* Features */}
                 <div className="space-y-2">
-                  <h4 className="text-xs font-semibold text-presentation-text">
+                  <h4 className="text-xs font-semibold text-gray-900">
                     Key Features:
                   </h4>
                   <div className="space-y-1">
                     {algorithm.features.slice(0, 3).map((feature, featureIndex) => (
                       <div 
                         key={featureIndex}
-                        className="flex items-center text-xs text-presentation-text-light"
+                        className="flex items-center text-xs text-gray-600"
                       >
                         <div className={`w-1.5 h-1.5 ${algorithm.color} rounded-full mr-2 flex-shrink-0`}></div>
                         {feature}
@@ -214,20 +216,20 @@ const AlgorithmsSlide = () => {
 
         {/* Enhanced Summary Stats */}
         <div className="grid grid-cols-3 gap-4 animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
-          <div className="bg-blue-500/10 backdrop-blur-sm rounded-xl p-4 text-center border border-blue-200">
-            <div className="text-3xl font-bold text-blue-600 mb-1">2</div>
-            <div className="text-sm text-blue-800 font-medium">Commercial Solutions</div>
-            <div className="text-xs text-blue-600">ACRCloud, Mediaprobe</div>
+          <div className="bg-blue-500/20 backdrop-blur-sm rounded-xl p-4 text-center border border-blue-400/30">
+            <div className="text-3xl font-bold text-blue-300 mb-1">2</div>
+            <div className="text-sm text-blue-200 font-medium">Commercial Solutions</div>
+            <div className="text-xs text-blue-400">ACRCloud, Mediaprobe</div>
           </div>
-          <div className="bg-green-500/10 backdrop-blur-sm rounded-xl p-4 text-center border border-green-200">
-            <div className="text-3xl font-bold text-green-600 mb-1">4</div>
-            <div className="text-sm text-green-800 font-medium">Open Source Libraries</div>
-            <div className="text-xs text-green-600">Python, Java, .NET implementations</div>
+          <div className="bg-green-500/20 backdrop-blur-sm rounded-xl p-4 text-center border border-green-400/30">
+            <div className="text-3xl font-bold text-green-300 mb-1">4</div>
+            <div className="text-sm text-green-200 font-medium">Open Source Libraries</div>
+            <div className="text-xs text-green-400">Python, Java, .NET implementations</div>
           </div>
-          <div className="bg-purple-500/10 backdrop-blur-sm rounded-xl p-4 text-center border border-purple-200">
-            <div className="text-3xl font-bold text-purple-600 mb-1">98%</div>
-            <div className="text-sm text-purple-800 font-medium">Best Accuracy Achieved</div>
-            <div className="text-xs text-purple-600">ACRCloud performance</div>
+          <div className="bg-purple-500/20 backdrop-blur-sm rounded-xl p-4 text-center border border-purple-400/30">
+            <div className="text-3xl font-bold text-purple-300 mb-1">98%</div>
+            <div className="text-sm text-purple-200 font-medium">Best Accuracy Achieved</div>
+            <div className="text-xs text-purple-400">ACRCloud performance</div>
           </div>
         </div>
       </div>
