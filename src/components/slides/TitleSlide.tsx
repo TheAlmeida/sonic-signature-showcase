@@ -63,9 +63,8 @@ const TitleSlide = () => {
             </span>
           </div>
           <h1 className="text-6xl font-bold font-montserrat mb-6 leading-tight text-white">
-            <span className="block animate-slide-in-left">Analysis and Benchmarking of</span>
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 animate-slide-in-right" style={{ animationDelay: '0.4s' }}>
-              Audio Fingerprinting Algorithms
+              Media Indexing
             </span>
           </h1>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto rounded-full animate-scale-in" style={{ animationDelay: '0.8s' }}></div>
@@ -74,7 +73,7 @@ const TitleSlide = () => {
         {/* Academic Context */}
         <div className="mb-12 animate-slide-in-up" style={{ animationDelay: '1s' }}>
           <h2 className="text-2xl font-medium text-blue-200 mb-2">
-            Electrical Engineering
+            Licenciatura em Engenharia Eletrotécnica e de Computadores
           </h2>
         </div>
 
@@ -86,8 +85,8 @@ const TitleSlide = () => {
                 <Volume2 className="h-6 w-6 text-blue-300" />
               </div>
               <p className="font-semibold text-blue-100 mb-1">Student</p>
-              <p className="text-gray-300 text-sm">Filipe Silva</p>
-              <p className="text-gray-400 text-xs">Electrical Engineering</p>
+              <p className="text-gray-300 text-sm">Filipe Almeida</p>
+              <p className="text-gray-400 text-xs">20399</p>
             </div>
           </div>
           
@@ -97,8 +96,8 @@ const TitleSlide = () => {
                 <AudioWaveform className="h-6 w-6 text-purple-300" />
               </div>
               <p className="font-semibold text-purple-100 mb-1">Institution</p>
-              <p className="text-gray-300 text-sm">Engineering Faculty</p>
-              <p className="text-gray-400 text-xs">University of Porto</p>
+              <p className="text-gray-300 text-sm">Escola Superior de Tecnologia</p>
+              <p className="text-gray-400 text-xs">Instituto Politécnico do Cávado e do Ave</p>
             </div>
           </div>
           
@@ -109,7 +108,7 @@ const TitleSlide = () => {
               </div>
               <p className="font-semibold text-cyan-100 mb-1">Host Company</p>
               <p className="text-gray-300 text-sm">Mediaprobe</p>
-              <p className="text-gray-400 text-xs">Audio Technology</p>
+              <p className="text-gray-400 text-xs">Media Measurement Solutions (EIS)</p>
             </div>
           </div>
         </div>
