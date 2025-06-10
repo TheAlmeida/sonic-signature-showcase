@@ -69,19 +69,18 @@ const ContextSlide = () => {
                       Company Overview
                     </h3>
                     <p className="text-presentation-text-light leading-relaxed">
-                      Leading Portuguese technology company specializing in audio content recognition, 
-                      digital media monitoring, and AI-powered audio analysis solutions.
+                      Leading Portuguese technology company specializing in audiovisual content emotional impact assessment (EIS - Emotional Impact Score).
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 gap-4 animate-slide-in-up" style={{ animationDelay: '1s' }}>
                     <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                      <MapPin className="h-5 w-5 text-blue-600" />
+                      <MapPin className="h-5 w-5 text-blue-600 flex-shrink-0" />
                       <span className="text-presentation-text-light font-medium">Porto, Portugal</span>
                     </div>
                     <div className="flex items-center space-x-3 p-3 bg-indigo-50 rounded-lg">
-                      <Code className="h-5 w-5 text-indigo-600" />
-                      <span className="text-presentation-text-light font-medium">Audio AI & Recognition Technology</span>
+                      <Code className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                      <span className="text-presentation-text-light font-medium">Audio Recognition & Biometrical Sensors Technology</span>
                     </div>
                   </div>
 
@@ -92,20 +91,20 @@ const ContextSlide = () => {
                     </h4>
                     <div className="grid grid-cols-2 gap-2 text-sm text-presentation-text-light">
                       <div className="flex items-center space-x-1">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                         <span>Audio Fingerprinting</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-indigo-500 rounded-full flex-shrink-0"></div>
                         <span>Real-time Processing</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
                         <span>Media Monitoring</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                        <span>Digital Rights Management</span>
+                        <div className="w-2 h-2 bg-indigo-500 rounded-full flex-shrink-0"></div>
+                        <span>GSR analysis</span>
                       </div>
                     </div>
                   </div>
@@ -139,7 +138,7 @@ const ContextSlide = () => {
                         <h4 className="font-semibold text-presentation-text mb-2">Primary Objective</h4>
                         <p className="text-presentation-text-light text-sm leading-relaxed">
                           Analyze and benchmark existing audio fingerprinting algorithms to improve 
-                          Mediaprobe's current solution and provide actionable recommendations.
+                          Mediaprobe's current internal developing algorithm and provide actionable recommendations.
                         </p>
                       </div>
                     </div>
@@ -161,7 +160,7 @@ const ContextSlide = () => {
                   <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-4 animate-scale-in" style={{ animationDelay: '1.4s' }}>
                     <h4 className="font-semibold text-presentation-text mb-4 flex items-center">
                       <Users className="h-4 w-4 text-orange-600 mr-2" />
-                      Key Research Activities
+                      Key Activities
                     </h4>
                     <div className="space-y-3">
                       {[

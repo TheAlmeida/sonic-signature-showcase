@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MessageCircle, Mail, Github, Linkedin, Heart, Users, ThumbsUp, ExternalLink, BookOpen, Award } from 'lucide-react';
+import { ThumbsUp, Heart, Users, ExternalLink, BookOpen, Award, Building2, GraduationCap } from 'lucide-react';
 
 const ThankYouSlide = () => {
   return (
@@ -69,82 +69,26 @@ const ThankYouSlide = () => {
             <div className="w-10 h-1 bg-blue-400 rounded-full"></div>
           </div>
           
-          <div className="grid grid-cols-3 gap-6 text-center max-w-3xl">
+          <div className="grid grid-cols-4 gap-4 text-center max-w-4xl">
             <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-              <h4 className="text-blue-200 font-medium mb-1">Mediaprobe Team</h4>
-              <p className="text-sm text-gray-400">For hosting and mentorship</p>
-            </div>
-            <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-              <h4 className="text-blue-200 font-medium mb-1">Academic Supervisors</h4>
-              <p className="text-sm text-gray-400">For guidance and feedback</p>
+              <GraduationCap className="h-6 w-6 text-blue-300 mx-auto mb-2" />
+              <h4 className="text-blue-200 font-medium mb-1">Academic Supervisor</h4>
+              <p className="text-sm text-gray-400">Daniel Miranda</p>
             </div>
             <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-              <h4 className="text-blue-200 font-medium mb-1">Open-Source Community</h4>
-              <p className="text-sm text-gray-400">For algorithm implementations</p>
+              <Building2 className="h-6 w-6 text-green-300 mx-auto mb-2" />
+              <h4 className="text-green-200 font-medium mb-1">Company Supervisors</h4>
+              <p className="text-sm text-gray-400">Rúben Dias & Nuno Dias</p>
             </div>
-          </div>
-        </div>
-
-        {/* Enhanced Q&A Section */}
-        <div className="bg-gradient-to-br from-white/10 to-purple/5 backdrop-blur-md rounded-3xl p-8 max-w-3xl shadow-2xl border border-white/20 animate-scale-in" style={{ animationDelay: '0.9s' }}>
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <div className="w-12 h-1 bg-purple-400/70 rounded-full"></div>
-            <div className="flex items-center space-x-3">
-              <MessageCircle className="h-6 w-6 text-purple-300" />
-              <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">
-                Questions & Discussion
-              </h3>
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+              <Users className="h-6 w-6 text-purple-300 mx-auto mb-2" />
+              <h4 className="text-purple-200 font-medium mb-1">Company Coworkers</h4>
+              <p className="text-sm text-gray-400">Sérgio Martins & Luís Silva</p>
             </div>
-            <div className="w-12 h-1 bg-purple-400/70 rounded-full"></div>
-          </div>
-          
-          <p className="text-lg text-blue-200 mb-8 leading-relaxed">
-            Ready to discuss the findings, methodology, and potential applications
-          </p>
-          
-          {/* Enhanced Contact Information */}
-          <div className="grid grid-cols-2 gap-6">
-            <a href="mailto:student@university.edu" className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300 group">
-              <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Mail className="h-5 w-5 text-blue-300" />
-              </div>
-              <div className="text-left">
-                <div className="text-sm font-medium text-gray-300">Email</div>
-                <div className="text-blue-200 group-hover:text-blue-100 transition-colors">student@university.edu</div>
-              </div>
-              <ExternalLink className="h-4 w-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-            
-            <a href="https://github.com/student" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300 group">
-              <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Github className="h-5 w-5 text-purple-300" />
-              </div>
-              <div className="text-left">
-                <div className="text-sm font-medium text-gray-300">Github</div>
-                <div className="text-purple-200 group-hover:text-purple-100 transition-colors">github.com/student</div>
-              </div>
-              <ExternalLink className="h-4 w-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-            
-            <a href="https://linkedin.com/in/student" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300 group">
-              <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Linkedin className="h-5 w-5 text-blue-300" />
-              </div>
-              <div className="text-left">
-                <div className="text-sm font-medium text-gray-300">LinkedIn</div>
-                <div className="text-blue-200 group-hover:text-blue-100 transition-colors">linkedin.com/in/student</div>
-              </div>
-              <ExternalLink className="h-4 w-4 text-gray-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </a>
-            
-            <div className="flex items-center space-x-3 bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-              <div className="w-10 h-10 bg-pink-500/20 rounded-full flex items-center justify-center">
-                <Heart className="h-5 w-5 text-pink-300" />
-              </div>
-              <div className="text-left">
-                <div className="text-sm font-medium text-gray-300">Interest</div>
-                <div className="text-pink-200">Audio AI & Recognition</div>
-              </div>
+            <div className="bg-white/5 backdrop-blur-lg rounded-xl p-4 border border-white/10 hover:bg-white/10 transition-colors duration-300">
+              <Heart className="h-6 w-6 text-pink-300 mx-auto mb-2" />
+              <h4 className="text-pink-200 font-medium mb-1">Family</h4>
+              <p className="text-sm text-gray-400">For support & encouragement</p>
             </div>
           </div>
         </div>
