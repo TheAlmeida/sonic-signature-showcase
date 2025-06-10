@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Volume2, Cpu, Database, BarChart3, Target, CheckCircle, ArrowRight, Mic, AudioWaveform, Settings, Search, Clock, TrendingUp, Users, Lightbulb, MessageCircle, FileText, Home, HardDrive } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -159,9 +160,9 @@ const Presentation = () => {
         </div>
       </div>
 
-      {/* Slide Navigation Dots with Bottom Safe Area */}
-      <div className="fixed bottom-[clamp(4rem,10vh,12rem)] left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex space-x-[clamp(0.4rem,1.5vw,1.5rem)] bg-white/90 backdrop-blur-md rounded-full px-[clamp(1.5rem,4vw,4rem)] py-[clamp(1rem,2.5vh,2.5rem)] shadow-lg border border-gray-100">
+      {/* Slide Navigation Dots - Smaller and more transparent */}
+      <div className="fixed bottom-[clamp(1.5rem,4vh,4rem)] left-1/2 transform -translate-x-1/2 z-50">
+        <div className="flex space-x-[clamp(0.3rem,1vw,1rem)] bg-white/70 backdrop-blur-md rounded-full px-[clamp(1rem,2.5vw,2.5rem)] py-[clamp(0.5rem,1.5vh,1.5rem)] shadow-lg border border-gray-100/50">
           {slides.map((slide, index) => {
             const Icon = slide.icon;
             return (
@@ -170,14 +171,14 @@ const Presentation = () => {
                 onClick={() => goToSlide(index)}
                 disabled={isTransitioning}
                 title={slide.title}
-                className={`group w-[clamp(2.5rem,5vw,5rem)] h-[clamp(2.5rem,5vw,5rem)] rounded-full flex items-center justify-center transition-all duration-300 relative ${
+                className={`group w-[clamp(1.8rem,3.5vw,3.5rem)] h-[clamp(1.8rem,3.5vw,3.5rem)] rounded-full flex items-center justify-center transition-all duration-300 relative ${
                   index === currentSlide ? `bg-${currentSlideColor}-100` : 'hover:bg-gray-100'
                 }`}
               >
-                <Icon className={`h-[clamp(1.2rem,2.5vw,2.2rem)] w-[clamp(1.2rem,2.5vw,2.2rem)] transition-colors ${
+                <Icon className={`h-[clamp(0.9rem,1.8vw,1.6rem)] w-[clamp(0.9rem,1.8vw,1.6rem)] transition-colors ${
                   index === currentSlide ? `text-${currentSlideColor}-600` : 'text-gray-400 group-hover:text-gray-600'
                 }`} />
-                <span className={`absolute -top-[clamp(4rem,8vh,7rem)] bg-${currentSlideColor}-800 text-white text-[clamp(0.8rem,1.8vw,1.5rem)] px-[clamp(0.8rem,2.5vw,2.5rem)] py-[clamp(0.5rem,1.5vh,1.2rem)] rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap`}>
+                <span className={`absolute -top-[clamp(3rem,6vh,5rem)] bg-${currentSlideColor}-800 text-white text-[clamp(0.7rem,1.5vw,1.2rem)] px-[clamp(0.6rem,2vw,2rem)] py-[clamp(0.4rem,1vh,1rem)] rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap`}>
                   {index + 1}. {slide.title}
                 </span>
               </button>
@@ -186,8 +187,8 @@ const Presentation = () => {
         </div>
       </div>
 
-      {/* Full-Screen Slide Area with Intelligent Spacing */}
-      <div className="pt-[clamp(5rem,10vh,10rem)] pb-[clamp(15rem,25vh,25rem)] flex-1 min-h-0 w-full">
+      {/* Full-Screen Slide Area with reduced bottom padding */}
+      <div className="pt-[clamp(5rem,10vh,10rem)] pb-[clamp(8rem,12vh,12rem)] flex-1 min-h-0 w-full">
         <div 
           key={animationKey} 
           className={`h-full w-full transition-all duration-500 ease-in-out ${
@@ -216,15 +217,15 @@ const Presentation = () => {
         />
       </div>
 
-      {/* Keyboard Shortcuts Help */}
-      <div className="fixed right-[clamp(1rem,3vw,3rem)] bottom-[clamp(16rem,28vh,28rem)] z-50">
+      {/* Keyboard Shortcuts Help - Smaller and more transparent */}
+      <div className="fixed right-[clamp(1rem,3vw,3rem)] bottom-[clamp(9rem,14vh,14rem)] z-50">
         <Button
           variant="outline"
           size="sm"
-          className="opacity-50 hover:opacity-100 transition-opacity px-[clamp(1rem,2.5vw,2.5rem)] py-[clamp(1rem,2.5vh,2rem)]"
+          className="opacity-40 hover:opacity-80 transition-opacity px-[clamp(0.8rem,2vw,2rem)] py-[clamp(0.8rem,2vh,1.5rem)] bg-white/70 backdrop-blur-sm"
           title="Press '?' for keyboard shortcuts"
         >
-          <span className="text-[clamp(1.2rem,2.5vw,2.2rem)]">?</span>
+          <span className="text-[clamp(1rem,2vw,1.8rem)]">?</span>
         </Button>
       </div>
     </div>
