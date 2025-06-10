@@ -104,7 +104,7 @@ const AgendaSlide = () => {
         </div>
 
         {/* Responsive Agenda Grid with Smart Spacing */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(1.5vh,2.5vh,2.5vh)] lg:gap-[clamp(2vw,3vw,3vw)] mb-[clamp(3vh,4vh,4vh)]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[clamp(1.5vh,2.5vh,2.5vh)] lg:gap-[clamp(2vw,3vw,3vw)]">
           {agendaItems.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -144,19 +144,6 @@ const AgendaSlide = () => {
               </div>
             );
           })}
-        </div>
-
-        {/* Responsive Footer with Safe Bottom Area */}
-        <div className="text-center animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
-          <div className="inline-flex items-center space-x-[clamp(1.5vw,2vw,2vw)] px-[clamp(3vw,4vw,4vw)] py-[clamp(1.5vh,2vh,2vh)] bg-gradient-to-r from-blue-500/10 to-indigo-500/10 backdrop-blur-sm rounded-full border border-blue-200">
-            <Clock className="h-[clamp(1rem,1.8vw,1.3rem)] w-[clamp(1rem,1.8vw,1.3rem)] text-blue-600" />
-            <span className="text-[clamp(0.9rem,1.6vw,1.1rem)] font-medium text-blue-800">Presentation Duration: ~45 minutes</span>
-            <div className="flex items-center space-x-[clamp(0.4vw,0.5vw,0.5vw)]">
-              <div className="w-[clamp(0.4vw,0.5vw,0.5vw)] h-[clamp(0.4vw,0.5vw,0.5vw)] bg-green-500 rounded-full animate-pulse"></div>
-              <div className="w-[clamp(0.4vw,0.5vw,0.5vw)] h-[clamp(0.4vw,0.5vw,0.5vw)] bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-              <div className="w-[clamp(0.4vw,0.5vw,0.5vw)] h-[clamp(0.4vw,0.5vw,0.5vw)] bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
