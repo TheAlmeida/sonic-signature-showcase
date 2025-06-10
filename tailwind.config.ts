@@ -12,7 +12,7 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: 'clamp(1rem, 4vw, 2rem)',
 			screens: {
 				'2xl': '1400px'
 			}
@@ -21,6 +21,26 @@ export default {
 			fontFamily: {
 				'inter': ['Inter', 'sans-serif'],
 				'montserrat': ['Montserrat', 'sans-serif'],
+			},
+			fontSize: {
+				'fluid-xs': 'clamp(0.75rem, 1.2vw, 0.875rem)',
+				'fluid-sm': 'clamp(0.875rem, 1.4vw, 1rem)',
+				'fluid-base': 'clamp(1rem, 1.6vw, 1.125rem)',
+				'fluid-lg': 'clamp(1.125rem, 2vw, 1.5rem)',
+				'fluid-xl': 'clamp(1.25rem, 2.5vw, 2rem)',
+				'fluid-2xl': 'clamp(1.5rem, 3vw, 2.5rem)',
+				'fluid-3xl': 'clamp(2rem, 4vw, 3rem)',
+				'fluid-4xl': 'clamp(2.5rem, 5vw, 4rem)',
+				'fluid-5xl': 'clamp(3rem, 6vw, 5rem)',
+				'fluid-6xl': 'clamp(4rem, 8vw, 6rem)',
+			},
+			spacing: {
+				'fluid-xs': 'clamp(0.25rem, 1vw, 0.5rem)',
+				'fluid-sm': 'clamp(0.5rem, 1.5vw, 1rem)',
+				'fluid-md': 'clamp(1rem, 3vw, 2rem)',
+				'fluid-lg': 'clamp(2rem, 5vw, 4rem)',
+				'fluid-xl': 'clamp(3rem, 8vw, 6rem)',
+				'fluid-2xl': 'clamp(4rem, 10vw, 8rem)',
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -79,7 +99,9 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				'fluid': 'clamp(0.5rem, 1.5vw, 1.5rem)',
+				'fluid-lg': 'clamp(1rem, 2vw, 2rem)',
 			},
 			keyframes: {
 				'accordion-down': {

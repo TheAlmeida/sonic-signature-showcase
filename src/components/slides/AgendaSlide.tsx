@@ -64,47 +64,47 @@ const AgendaSlide = () => {
 
   return (
     <div className="h-full relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
-      {/* Document Background Pattern */}
+      {/* Responsive Document Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `
             linear-gradient(90deg, #3b82f6 1px, transparent 1px),
             linear-gradient(180deg, #3b82f6 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
+          backgroundSize: 'clamp(30px,5vw,40px) clamp(30px,5vw,40px)'
         }}></div>
       </div>
 
-      {/* Document Icons */}
+      {/* Responsive Document Icons */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 right-20 animate-gentle-float opacity-15">
-          <FileText className="h-16 w-16 text-blue-500" />
+        <div className="absolute top-[10vh] right-[10vw] animate-gentle-float opacity-15">
+          <FileText className="h-[clamp(4rem,8vw,6rem)] w-[clamp(4rem,8vw,6rem)] text-blue-500" />
         </div>
-        <div className="absolute bottom-32 left-16 animate-gentle-float opacity-12" style={{ animationDelay: '2s' }}>
-          <MessageCircle className="h-14 w-14 text-indigo-500" />
+        <div className="absolute bottom-[15vh] left-[8vw] animate-gentle-float opacity-12" style={{ animationDelay: '2s' }}>
+          <MessageCircle className="h-[clamp(3rem,6vw,4.5rem)] w-[clamp(3rem,6vw,4.5rem)] text-indigo-500" />
         </div>
-        <div className="absolute top-1/3 left-16 animate-gentle-float opacity-18" style={{ animationDelay: '4s' }}>
-          <Clock className="h-12 w-12 text-purple-500" />
+        <div className="absolute top-1/3 left-[8vw] animate-gentle-float opacity-18" style={{ animationDelay: '4s' }}>
+          <Clock className="h-[clamp(2.5rem,5vw,3.5rem)] w-[clamp(2.5rem,5vw,3.5rem)] text-purple-500" />
         </div>
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto h-full py-8 px-12">
-        {/* Enhanced Header */}
-        <div className="text-center mb-10 animate-slide-in-up">
-          <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4 animate-fade-in">
-            <FileText className="h-4 w-4" />
+      <div className="relative z-10 max-w-[90vw] mx-auto h-full py-[4vh] px-[6vw]">
+        {/* Responsive Header */}
+        <div className="text-center mb-[5vh] animate-slide-in-up">
+          <div className="inline-flex items-center space-x-[1vw] bg-blue-100 text-blue-800 px-[2vw] py-[1vh] rounded-full text-[clamp(0.75rem,1.2vw,1rem)] font-medium mb-[2vh] animate-fade-in">
+            <FileText className="h-[clamp(1rem,1.5vw,1.25rem)] w-[clamp(1rem,1.5vw,1.25rem)]" />
             <span>Session Overview</span>
           </div>
-          <h1 className="text-5xl font-bold text-presentation-text font-montserrat mb-4 animate-slide-in-down" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-[clamp(3rem,8vw,5rem)] font-bold text-presentation-text font-montserrat mb-[2vh] animate-slide-in-down" style={{ animationDelay: '0.2s' }}>
             Presentation Agenda
           </h1>
-          <p className="text-xl text-presentation-text-light animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-presentation-text-light animate-fade-in" style={{ animationDelay: '0.4s' }}>
             A comprehensive overview of the audio fingerprinting analysis project
           </p>
         </div>
 
-        {/* Enhanced Agenda Grid */}
-        <div className="grid grid-cols-2 gap-y-6 gap-x-8 mb-8">
+        {/* Responsive Agenda Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-[2vh] lg:gap-[3vw] mb-[4vh]">
           {agendaItems.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -113,27 +113,27 @@ const AgendaSlide = () => {
                 className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-500 overflow-hidden group animate-scale-in"
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
               >
-                <div className={`h-1 bg-${item.color}-500 w-full`}></div>
-                <div className="p-6">
-                  <div className="flex items-start space-x-4">
-                    <div className={`flex-shrink-0 w-14 h-14 bg-${item.color}-500/10 rounded-xl flex items-center justify-center border border-${item.color}-200 group-hover:scale-105 transition-transform duration-300`}>
-                      <Icon className={`h-6 w-6 text-${item.color}-600`} />
+                <div className={`h-[0.5vh] bg-${item.color}-500 w-full`}></div>
+                <div className="p-[3vw] lg:p-[2vw]">
+                  <div className="flex items-start space-x-[2vw]">
+                    <div className={`flex-shrink-0 w-[clamp(3.5rem,6vw,4rem)] h-[clamp(3.5rem,6vw,4rem)] bg-${item.color}-500/10 rounded-xl flex items-center justify-center border border-${item.color}-200 group-hover:scale-105 transition-transform duration-300`}>
+                      <Icon className={`h-[clamp(1.5rem,3vw,2rem)] w-[clamp(1.5rem,3vw,2rem)] text-${item.color}-600`} />
                     </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <h3 className={`text-lg font-bold text-presentation-text mb-1 group-hover:text-${item.color}-700 transition-colors duration-300`}>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between mb-[1vh]">
+                        <h3 className={`text-[clamp(1rem,2vw,1.25rem)] font-bold text-presentation-text group-hover:text-${item.color}-700 transition-colors duration-300`}>
                           {item.title}
                         </h3>
-                        <span className={`text-xs bg-${item.color}-100 text-${item.color}-800 px-2 py-1 rounded-full font-medium`}>
+                        <span className={`text-[clamp(0.6rem,1vw,0.75rem)] bg-${item.color}-100 text-${item.color}-800 px-[1vw] py-[0.5vh] rounded-full font-medium flex-shrink-0`}>
                           {index + 1}
                         </span>
                       </div>
-                      <p className="text-sm text-presentation-text-light mb-3">
+                      <p className="text-[clamp(0.75rem,1.2vw,1rem)] text-presentation-text-light mb-[1.5vh] leading-relaxed">
                         {item.description}
                       </p>
-                      <div className={`flex flex-wrap gap-2 text-xs`}>
+                      <div className="flex flex-wrap gap-[0.5vw] text-[clamp(0.6rem,1vw,0.75rem)]">
                         {item.topics.map((topic, topicIndex) => (
-                          <span key={topicIndex} className={`bg-${item.color}-50 text-${item.color}-700 px-2 py-1 rounded-md`}>
+                          <span key={topicIndex} className={`bg-${item.color}-50 text-${item.color}-700 px-[1vw] py-[0.5vh] rounded-md whitespace-nowrap`}>
                             {topic}
                           </span>
                         ))}
@@ -146,15 +146,15 @@ const AgendaSlide = () => {
           })}
         </div>
 
-        {/* Enhanced Footer */}
+        {/* Responsive Footer */}
         <div className="text-center animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
-          <div className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 backdrop-blur-sm rounded-full border border-blue-200">
-            <Clock className="h-5 w-5 text-blue-600" />
-            <span className="text-lg font-medium text-blue-800">Presentation Duration: ~45 minutes</span>
-            <div className="flex items-center space-x-1">
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+          <div className="inline-flex items-center space-x-[2vw] px-[4vw] py-[2vh] bg-gradient-to-r from-blue-500/10 to-indigo-500/10 backdrop-blur-sm rounded-full border border-blue-200">
+            <Clock className="h-[clamp(1.25rem,2vw,1.5rem)] w-[clamp(1.25rem,2vw,1.5rem)] text-blue-600" />
+            <span className="text-[clamp(1rem,2vw,1.25rem)] font-medium text-blue-800">Presentation Duration: ~45 minutes</span>
+            <div className="flex items-center space-x-[0.5vw]">
+              <div className="w-[0.5vw] h-[0.5vw] bg-green-500 rounded-full animate-pulse"></div>
+              <div className="w-[0.5vw] h-[0.5vw] bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+              <div className="w-[0.5vw] h-[0.5vw] bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
             </div>
           </div>
         </div>

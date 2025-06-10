@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Volume2, Cpu, Database, BarChart3, Target, CheckCircle, ArrowRight, Mic, AudioWaveform, Settings, Search, Clock, TrendingUp, Users, Lightbulb, MessageCircle, FileText, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -32,7 +31,7 @@ const Presentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [transitionDirection, setTransitionDirection] = useState('next'); // 'next' or 'prev'
+  const [transitionDirection, setTransitionDirection] = useState('next');
 
   const nextSlide = () => {
     if (currentSlide < slides.length - 1 && !isTransitioning) {
@@ -97,32 +96,32 @@ const Presentation = () => {
   const currentSlideColor = slides[currentSlide].color;
 
   return (
-    <div className="h-screen bg-gradient-to-br from-slate-50 to-blue-50 font-inter overflow-hidden">
-      {/* Enhanced Navigation Bar */}
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 to-blue-50 font-inter overflow-hidden flex flex-col">
+      {/* Responsive Navigation Bar */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div className="flex items-center justify-between px-6 py-3">
-          <div className="flex items-center space-x-4">
-            <div className={`px-3 py-1 bg-${currentSlideColor}-100 text-${currentSlideColor}-800 rounded-full text-sm font-medium animate-fade-in flex items-center space-x-2`}>
+        <div className="flex items-center justify-between px-[2vw] py-[0.75vh]">
+          <div className="flex items-center space-x-[1vw]">
+            <div className={`px-[0.75vw] py-[0.5vh] bg-${currentSlideColor}-100 text-${currentSlideColor}-800 rounded-full text-[clamp(0.75rem,1.2vw,1rem)] font-medium animate-fade-in flex items-center space-x-[0.5vw]`}>
               <span>{currentSlide + 1}</span>
               <span className="text-gray-400">/</span>
               <span className="text-gray-600">{slides.length}</span>
             </div>
-            <div className="flex items-center space-x-2 text-sm font-medium text-gray-800 animate-fade-in-right" style={{ animationDelay: '0.1s' }}>
-              {React.createElement(slides[currentSlide].icon, { className: `h-4 w-4 text-${currentSlideColor}-600 mr-1` })}
+            <div className="flex items-center space-x-[0.5vw] text-[clamp(0.75rem,1.1vw,0.9rem)] font-medium text-gray-800 animate-fade-in-right" style={{ animationDelay: '0.1s' }}>
+              {React.createElement(slides[currentSlide].icon, { className: `h-[clamp(1rem,1.5vw,1.25rem)] w-[clamp(1rem,1.5vw,1.25rem)] text-${currentSlideColor}-600 mr-[0.25vw]` })}
               <span>{slides[currentSlide].title}</span>
             </div>
           </div>
           
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-[0.75vw]">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => goToSlide(0)}
               disabled={currentSlide === 0 || isTransitioning}
-              className="hover:bg-gray-100 transition-colors duration-200 flex items-center space-x-1"
+              className="hover:bg-gray-100 transition-colors duration-200 flex items-center space-x-[0.25vw] px-[0.75vw] py-[0.5vh]"
             >
-              <Home className="h-3.5 w-3.5" />
-              <span className="text-xs">Start</span>
+              <Home className="h-[clamp(0.75rem,1.2vw,1rem)] w-[clamp(0.75rem,1.2vw,1rem)]" />
+              <span className="text-[clamp(0.6rem,1vw,0.75rem)]">Start</span>
             </Button>
             
             <Button
@@ -130,10 +129,10 @@ const Presentation = () => {
               size="sm"
               onClick={prevSlide}
               disabled={currentSlide === 0 || isTransitioning}
-              className="hover:bg-gray-100 transition-colors duration-200 flex items-center"
+              className="hover:bg-gray-100 transition-colors duration-200 flex items-center px-[0.75vw] py-[0.5vh]"
             >
-              <ChevronLeft className="h-4 w-4 mr-1" />
-              <span className="text-xs">Prev</span>
+              <ChevronLeft className="h-[clamp(1rem,1.5vw,1.25rem)] w-[clamp(1rem,1.5vw,1.25rem)] mr-[0.25vw]" />
+              <span className="text-[clamp(0.6rem,1vw,0.75rem)]">Prev</span>
             </Button>
             
             <Button
@@ -141,16 +140,16 @@ const Presentation = () => {
               size="sm"
               onClick={nextSlide}
               disabled={currentSlide === slides.length - 1 || isTransitioning}
-              className="hover:bg-gray-100 transition-colors duration-200 flex items-center"
+              className="hover:bg-gray-100 transition-colors duration-200 flex items-center px-[0.75vw] py-[0.5vh]"
             >
-              <span className="text-xs">Next</span>
-              <ChevronRight className="h-4 w-4 ml-1" />
+              <span className="text-[clamp(0.6rem,1vw,0.75rem)]">Next</span>
+              <ChevronRight className="h-[clamp(1rem,1.5vw,1.25rem)] w-[clamp(1rem,1.5vw,1.25rem)] ml-[0.25vw]" />
             </Button>
           </div>
         </div>
         
-        {/* Enhanced Progress Bar */}
-        <div className="h-1 bg-gray-100">
+        {/* Responsive Progress Bar */}
+        <div className="h-[0.25vh] bg-gray-100">
           <div 
             className={`h-full bg-gradient-to-r from-${currentSlideColor}-500 to-${currentSlideColor}-600 transition-all duration-500 ease-out`}
             style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
@@ -158,9 +157,9 @@ const Presentation = () => {
         </div>
       </div>
 
-      {/* Enhanced Slide Navigation Dots */}
-      <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-        <div className="flex space-x-2 bg-white/90 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-gray-100">
+      {/* Responsive Slide Navigation Dots */}
+      <div className="fixed bottom-[3vh] left-1/2 transform -translate-x-1/2 z-50">
+        <div className="flex space-x-[0.5vw] bg-white/90 backdrop-blur-md rounded-full px-[2vw] py-[1vh] shadow-lg border border-gray-100">
           {slides.map((slide, index) => {
             const Icon = slide.icon;
             return (
@@ -169,14 +168,14 @@ const Presentation = () => {
                 onClick={() => goToSlide(index)}
                 disabled={isTransitioning}
                 title={slide.title}
-                className={`group w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 relative ${
+                className={`group w-[clamp(1.5rem,2.5vw,2rem)] h-[clamp(1.5rem,2.5vw,2rem)] rounded-full flex items-center justify-center transition-all duration-300 relative ${
                   index === currentSlide ? `bg-${currentSlideColor}-100` : 'hover:bg-gray-100'
                 }`}
               >
-                <Icon className={`h-3 w-3 transition-colors ${
+                <Icon className={`h-[clamp(0.75rem,1.2vw,1rem)] w-[clamp(0.75rem,1.2vw,1rem)] transition-colors ${
                   index === currentSlide ? `text-${currentSlideColor}-600` : 'text-gray-400 group-hover:text-gray-600'
                 }`} />
-                <span className={`absolute -top-8 bg-${currentSlideColor}-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none`}>
+                <span className={`absolute -top-[4vh] bg-${currentSlideColor}-800 text-white text-[clamp(0.6rem,1vw,0.75rem)] px-[1vw] py-[0.5vh] rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap`}>
                   {index + 1}. {slide.title}
                 </span>
               </button>
@@ -185,8 +184,8 @@ const Presentation = () => {
         </div>
       </div>
 
-      {/* Enhanced Main Slide Area */}
-      <div className="pt-16 h-full">
+      {/* Responsive Main Slide Area */}
+      <div className="pt-[8vh] flex-1 min-h-0">
         <div 
           key={animationKey} 
           className={`h-full transition-all duration-500 ease-in-out ${
@@ -201,29 +200,29 @@ const Presentation = () => {
         </div>
       </div>
 
-      {/* Slide Controls Overlay (touch areas for mobile) */}
+      {/* Touch/Click Areas for Navigation */}
       <div className="fixed inset-0 z-40 pointer-events-none">
         <div 
-          className="absolute left-0 top-0 bottom-0 w-1/5 h-full pointer-events-auto cursor-w-resize opacity-0"
+          className="absolute left-0 top-0 bottom-0 w-[20vw] h-full pointer-events-auto cursor-w-resize opacity-0"
           onClick={prevSlide}
           style={{ display: currentSlide === 0 || isTransitioning ? 'none' : 'block' }}
         />
         <div 
-          className="absolute right-0 top-0 bottom-0 w-1/5 h-full pointer-events-auto cursor-e-resize opacity-0" 
+          className="absolute right-0 top-0 bottom-0 w-[20vw] h-full pointer-events-auto cursor-e-resize opacity-0" 
           onClick={nextSlide}
           style={{ display: currentSlide === slides.length - 1 || isTransitioning ? 'none' : 'block' }}
         />
       </div>
 
-      {/* Keyboard Shortcuts Help - Press '?' to show */}
-      <div className="fixed right-4 bottom-20 z-50">
+      {/* Responsive Keyboard Shortcuts Help */}
+      <div className="fixed right-[2vw] bottom-[12vh] z-50">
         <Button
           variant="outline"
           size="sm"
-          className="opacity-50 hover:opacity-100 transition-opacity"
+          className="opacity-50 hover:opacity-100 transition-opacity px-[1vw] py-[1vh]"
           title="Press '?' for keyboard shortcuts"
         >
-          ?
+          <span className="text-[clamp(0.75rem,1.2vw,1rem)]">?</span>
         </Button>
       </div>
     </div>
