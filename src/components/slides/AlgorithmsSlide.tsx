@@ -1,84 +1,77 @@
 
 import React from 'react';
 import { Building2, Cloud, Github, Database, Cpu, Zap, Code, Shield, Globe } from 'lucide-react';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 
 const AlgorithmsSlide = () => {
-  const algorithms = [
+  const commercialAlgorithms = [
     {
-      name: 'Mediaprobe',
+      name: 'MP ACR',
       type: 'Commercial',
       icon: Building2,
       color: 'bg-blue-600',
-      accentColor: 'blue',
-      features: ['Proprietary algorithm', 'Real-time processing', 'High accuracy', 'Scalable architecture'],
-      description: 'Company\'s current audio fingerprinting solution',
-      performance: { accuracy: 95, speed: 'Fast', robustness: 'High' }
+      description: 'No access to source code'
     },
     {
       name: 'ACRCloud',
       type: 'Commercial API',
       icon: Cloud,
       color: 'bg-green-600',
-      accentColor: 'green',
-      features: ['Cloud-based service', 'Multiple audio formats', 'Global database', 'REST API'],
-      description: 'Leading commercial audio recognition platform',
-      performance: { accuracy: 98, speed: 'Very Fast', robustness: 'Very High' }
-    },
-    {
-      name: 'Audfprint',
-      type: 'Open Source',
-      icon: Github,
-      color: 'bg-purple-600',
-      accentColor: 'purple',
-      features: ['Peak-based hashing', 'Efficient matching', 'Python implementation', 'Research-oriented'],
-      description: 'Academic implementation by Dan Ellis (Columbia)',
-      performance: { accuracy: 88, speed: 'Medium', robustness: 'Medium' }
-    },
-    {
-      name: 'Dejavu',
-      type: 'Open Source',
-      icon: Database,
-      color: 'bg-orange-600',
-      accentColor: 'orange',
-      features: ['Spectral peaks', 'MySQL/PostgreSQL', 'Simple interface', 'Noise robust'],
-      description: 'Popular Python audio fingerprinting library',
-      performance: { accuracy: 82, speed: 'Slow', robustness: 'Medium' }
-    },
-    {
-      name: 'Olaf',
-      type: 'Open Source',
-      icon: Cpu,
-      color: 'bg-red-600',
-      accentColor: 'red',
-      features: ['Event point pairing', 'Fast indexing', 'Memory efficient', 'Java implementation'],
-      description: 'Optimized for large-scale audio databases',
-      performance: { accuracy: 90, speed: 'Fast', robustness: 'High' }
-    },
-    {
-      name: 'Soundfingerprinting',
-      type: 'Open Source',
-      icon: Zap,
-      color: 'bg-indigo-600',
-      accentColor: 'indigo',
-      features: ['.NET framework', 'Neural networks', 'High precision', 'Configurable parameters'],
-      description: 'Advanced .NET audio fingerprinting library',
-      performance: { accuracy: 93, speed: 'Fast', robustness: 'High' }
+      description: 'No access to source code'
     }
   ];
 
-  const getPerformanceColor = (metric: string, value: string | number) => {
-    if (typeof value === 'number') {
-      if (value >= 95) return 'text-green-600';
-      if (value >= 90) return 'text-blue-600';
-      if (value >= 85) return 'text-yellow-600';
-      return 'text-red-600';
+  const tableData = [
+    {
+      feature: 'Language',
+      audfprint: 'Python',
+      dejavu: 'Python',
+      olaf: 'C',
+      soundfingerprinting: 'C#'
+    },
+    {
+      feature: 'Open Source',
+      audfprint: 'Yes',
+      dejavu: 'Yes',
+      olaf: 'Yes',
+      soundfingerprinting: 'Yes'
+    },
+    {
+      feature: 'Hash Type',
+      audfprint: '32-bit int; landmark pairs (freq1, freq2, Δt)',
+      dejavu: '160-bit SHA1 (80-bit used); (freq1, freq2, Δt)',
+      olaf: '64-bit int; 3 peaks (freq, mag, Δt)',
+      soundfingerprinting: 'MinHash vector; wavelet coeffs'
+    },
+    {
+      feature: 'Database',
+      audfprint: '.pklz file with hash table',
+      dejavu: 'Relational DB (MySQL/PostgreSQL)',
+      olaf: 'LMDB',
+      soundfingerprinting: 'In-memory or external (e.g., Emy)'
+    },
+    {
+      feature: 'Peak Pairing',
+      audfprint: 'Yes',
+      dejavu: 'Yes',
+      olaf: 'Yes',
+      soundfingerprinting: 'No (wavelet-based)'
+    },
+    {
+      feature: 'Matching Strategy',
+      audfprint: 'Offset voting',
+      dejavu: 'Offset voting',
+      olaf: 'Histogram of (track_id, delta) votes',
+      soundfingerprinting: 'Hamming + temporal alignment'
+    },
+    {
+      feature: 'Noise Robustness',
+      audfprint: 'High',
+      dejavu: 'Medium–High',
+      olaf: 'High',
+      soundfingerprinting: 'Medium'
     }
-    
-    if (value === 'Very Fast' || value === 'Very High') return 'text-green-600';
-    if (value === 'Fast' || value === 'High') return 'text-blue-600';
-    if (value === 'Medium') return 'text-yellow-600';
-    return 'text-red-600';
-  };
+  ];
 
   return (
     <div className="h-full relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
@@ -125,111 +118,85 @@ const AlgorithmsSlide = () => {
           </p>
         </div>
 
-        {/* Enhanced Algorithms Grid */}
-        <div className="grid grid-cols-3 gap-6 h-4/5 mb-6">
-          {algorithms.map((algorithm, index) => {
+        {/* Commercial Algorithms Summary */}
+        <div className="grid grid-cols-2 gap-6 mb-8">
+          {commercialAlgorithms.map((algorithm, index) => {
             const Icon = algorithm.icon;
             return (
               <div
                 key={index}
-                className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-200 animate-scale-in relative overflow-hidden group"
+                className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-gray-200 animate-scale-in"
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
               >
-                {/* Card Background Accent */}
-                <div className={`absolute top-0 left-0 right-0 h-1 ${algorithm.color.replace('bg-', 'bg-')}`}></div>
-                
-                {/* Header */}
+                <div className={`absolute top-0 left-0 right-0 h-1 ${algorithm.color}`}></div>
                 <div className="flex items-center mb-4">
-                  <div className={`w-14 h-14 ${algorithm.color} rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-14 h-14 ${algorithm.color} rounded-xl flex items-center justify-center mr-4 shadow-lg`}>
                     <Icon className="h-7 w-7 text-white" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-bold text-gray-900">
                       {algorithm.name}
                     </h3>
-                    <span className={`text-xs px-2 py-1 rounded-full font-medium ${
-                      algorithm.type === 'Commercial' || algorithm.type === 'Commercial API' 
-                        ? 'bg-blue-100 text-blue-800' 
-                        : 'bg-green-100 text-green-800'
-                    }`}>
+                    <span className="text-xs px-2 py-1 rounded-full font-medium bg-blue-100 text-blue-800">
                       {algorithm.type}
                     </span>
                   </div>
                 </div>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-600 text-sm">
                   {algorithm.description}
                 </p>
-
-                {/* Performance Metrics */}
-                <div className="mb-4 p-3 bg-gray-50 rounded-lg">
-                  <h4 className="text-xs font-semibold text-gray-700 mb-2">Performance</h4>
-                  <div className="grid grid-cols-1 gap-1 text-xs">
-                    <div className="flex justify-between">
-                      <span>Accuracy:</span>
-                      <span className={`font-bold ${getPerformanceColor('accuracy', algorithm.performance.accuracy)}`}>
-                        {algorithm.performance.accuracy}%
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Speed:</span>
-                      <span className={`font-bold ${getPerformanceColor('speed', algorithm.performance.speed)}`}>
-                        {algorithm.performance.speed}
-                      </span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Robustness:</span>
-                      <span className={`font-bold ${getPerformanceColor('robustness', algorithm.performance.robustness)}`}>
-                        {algorithm.performance.robustness}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="space-y-2">
-                  <h4 className="text-xs font-semibold text-gray-900">
-                    Key Features:
-                  </h4>
-                  <div className="space-y-1">
-                    {algorithm.features.slice(0, 3).map((feature, featureIndex) => (
-                      <div 
-                        key={featureIndex}
-                        className="flex items-center text-xs text-gray-600"
-                      >
-                        <div className={`w-1.5 h-1.5 ${algorithm.color} rounded-full mr-2 flex-shrink-0`}></div>
-                        {feature}
-                      </div>
-                    ))}
-                    {algorithm.features.length > 3 && (
-                      <div className="text-xs text-gray-500 italic">
-                        +{algorithm.features.length - 3} more features
-                      </div>
-                    )}
-                  </div>
-                </div>
               </div>
             );
           })}
         </div>
 
+        {/* Open Source Algorithms Comparison Table */}
+        <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6 border border-gray-200 animate-slide-in-up" style={{ animationDelay: '0.8s' }}>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            Open Source Algorithms Comparison
+          </h2>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="font-bold text-gray-900">Feature</TableHead>
+                  <TableHead className="font-bold text-purple-700">Audfprint</TableHead>
+                  <TableHead className="font-bold text-orange-700">Dejavu</TableHead>
+                  <TableHead className="font-bold text-red-700">Olaf</TableHead>
+                  <TableHead className="font-bold text-indigo-700">Soundfingerprinting</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {tableData.map((row, index) => (
+                  <TableRow key={index} className="hover:bg-gray-50">
+                    <TableCell className="font-medium text-gray-900">{row.feature}</TableCell>
+                    <TableCell className="text-purple-700">{row.audfprint}</TableCell>
+                    <TableCell className="text-orange-700">{row.dejavu}</TableCell>
+                    <TableCell className="text-red-700">{row.olaf}</TableCell>
+                    <TableCell className="text-indigo-700">{row.soundfingerprinting}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+
         {/* Enhanced Summary Stats */}
-        <div className="grid grid-cols-3 gap-4 animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
+        <div className="grid grid-cols-3 gap-4 mt-6 animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
           <div className="bg-blue-500/20 backdrop-blur-sm rounded-xl p-4 text-center border border-blue-400/30">
             <div className="text-3xl font-bold text-blue-300 mb-1">2</div>
             <div className="text-sm text-blue-200 font-medium">Commercial Solutions</div>
-            <div className="text-xs text-blue-400">ACRCloud, Mediaprobe</div>
+            <div className="text-xs text-blue-400">MP ACR, ACRCloud</div>
           </div>
           <div className="bg-green-500/20 backdrop-blur-sm rounded-xl p-4 text-center border border-green-400/30">
             <div className="text-3xl font-bold text-green-300 mb-1">4</div>
             <div className="text-sm text-green-200 font-medium">Open Source Libraries</div>
-            <div className="text-xs text-green-400">Python, Java, .NET implementations</div>
+            <div className="text-xs text-green-400">Python, C, C# implementations</div>
           </div>
           <div className="bg-purple-500/20 backdrop-blur-sm rounded-xl p-4 text-center border border-purple-400/30">
-            <div className="text-3xl font-bold text-purple-300 mb-1">98%</div>
-            <div className="text-sm text-purple-200 font-medium">Best Accuracy Achieved</div>
-            <div className="text-xs text-purple-400">ACRCloud performance</div>
+            <div className="text-3xl font-bold text-purple-300 mb-1">7</div>
+            <div className="text-sm text-purple-200 font-medium">Key Features Compared</div>
+            <div className="text-xs text-purple-400">Comprehensive analysis</div>
           </div>
         </div>
       </div>

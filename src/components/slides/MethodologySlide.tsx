@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Database, Target, BarChart3, Clock, CheckCircle, ArrowDown, FlaskConical, Settings, Zap } from 'lucide-react';
+import { Target, BarChart3, Clock, Database, FlaskConical, Settings, Zap, CheckCircle } from 'lucide-react';
 
 const MethodologySlide = () => {
   return (
@@ -41,175 +41,150 @@ const MethodologySlide = () => {
             Evaluation Methodology
           </h1>
           <p className="text-xl text-presentation-text-light animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Systematic approach to algorithm benchmarking and analysis
+            Three-metric approach to algorithm benchmarking and analysis
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 h-4/5">
-          {/* Enhanced Left Column - Datasets & Metrics */}
-          <div className="space-y-6">
-            {/* Datasets */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-blue-100 animate-slide-in-left" style={{ animationDelay: '0.6s' }}>
-              <div className="flex items-center mb-6 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                  <Database className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-presentation-text">Research Datasets</h3>
-              </div>
-              <div className="space-y-4">
-                <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4 animate-slide-in-up" style={{ animationDelay: '1s' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-blue-800">Clean Audio Dataset</h4>
-                    <span className="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded-full">Baseline</span>
-                  </div>
-                  <p className="text-sm text-blue-700 mb-2">1000 tracks across multiple genres</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs text-blue-600">
-                    <div>• High quality (320kbps)</div>
-                    <div>• Diverse genres</div>
-                    <div>• Varied durations</div>
-                    <div>• Multiple languages</div>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-4 animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-green-800">Noisy Audio Dataset</h4>
-                    <span className="text-xs bg-green-200 text-green-800 px-2 py-1 rounded-full">Robustness</span>
-                  </div>
-                  <p className="text-sm text-green-700 mb-2">Same tracks with environmental noise</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs text-green-600">
-                    <div>• SNR: 10-30dB</div>
-                    <div>• Traffic noise</div>
-                    <div>• Crowd chatter</div>
-                    <div>• Wind/microphone</div>
-                  </div>
-                </div>
-                
-                <div className="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-4 animate-slide-in-up" style={{ animationDelay: '1.4s' }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-purple-800">Modified Audio Dataset</h4>
-                    <span className="text-xs bg-purple-200 text-purple-800 px-2 py-1 rounded-full">Distortion</span>
-                  </div>
-                  <p className="text-sm text-purple-700 mb-2">Speed/pitch variations and compression</p>
-                  <div className="grid grid-cols-2 gap-2 text-xs text-purple-600">
-                    <div>• ±5% speed change</div>
-                    <div>• Pitch shifting</div>
-                    <div>• MP3 compression</div>
-                    <div>• Echo effects</div>
-                  </div>
-                </div>
-              </div>
+        <div className="grid grid-cols-1 gap-8 h-4/5">
+          {/* Main Metrics Overview */}
+          <div className="grid grid-cols-3 gap-6 animate-slide-in-up" style={{ animationDelay: '0.6s' }}>
+            <div className="bg-blue-50 rounded-2xl p-6 text-center border border-blue-200">
+              <Target className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-blue-800 mb-2">Matching Quality</h3>
+              <p className="text-sm text-blue-600">Precision & Recall evaluation</p>
             </div>
-
-            {/* Metrics */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-green-100 animate-slide-in-left" style={{ animationDelay: '0.8s' }}>
-              <div className="flex items-center mb-6 animate-fade-in" style={{ animationDelay: '1s' }}>
-                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                  <BarChart3 className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-xl font-bold text-presentation-text">Performance Metrics</h3>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { icon: Target, label: 'Precision', desc: 'True positive accuracy', color: 'blue' },
-                  { icon: CheckCircle, label: 'Recall', desc: 'Detection completeness', color: 'green' },
-                  { icon: Clock, label: 'Speed', desc: 'Processing time', color: 'orange' },
-                  { icon: Database, label: 'Memory', desc: 'Resource efficiency', color: 'purple' }
-                ].map((metric, index) => {
-                  const Icon = metric.icon;
-                  return (
-                    <div key={index} className={`text-center p-4 bg-${metric.color}-50 rounded-xl border border-${metric.color}-100 hover:shadow-lg transition-all duration-300 animate-scale-in`} style={{ animationDelay: `${1.2 + index * 0.1}s` }}>
-                      <Icon className={`h-8 w-8 text-${metric.color}-500 mx-auto mb-2`} />
-                      <div className={`text-sm font-bold text-${metric.color}-800`}>{metric.label}</div>
-                      <div className={`text-xs text-${metric.color}-600 mt-1`}>{metric.desc}</div>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="bg-green-50 rounded-2xl p-6 text-center border border-green-200">
+              <Clock className="h-12 w-12 text-green-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-green-800 mb-2">Execution Time</h3>
+              <p className="text-sm text-green-600">Processing speed analysis</p>
+            </div>
+            <div className="bg-purple-50 rounded-2xl p-6 text-center border border-purple-200">
+              <Database className="h-12 w-12 text-purple-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-purple-800 mb-2">Memory Efficiency</h3>
+              <p className="text-sm text-purple-600">Storage requirements</p>
             </div>
           </div>
 
-          {/* Enhanced Right Column - Testing Process */}
-          <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-purple-100 animate-slide-in-right" style={{ animationDelay: '1s' }}>
-            <div className="flex items-center mb-6 animate-fade-in" style={{ animationDelay: '1.2s' }}>
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-                <FlaskConical className="h-6 w-6 text-white" />
+          {/* Detailed Methodology */}
+          <div className="grid grid-cols-3 gap-6">
+            {/* Matching Evaluation */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-blue-100 animate-slide-in-left" style={{ animationDelay: '0.8s' }}>
+              <div className="flex items-center mb-4">
+                <Target className="h-8 w-8 text-blue-600 mr-3" />
+                <h3 className="text-lg font-bold text-presentation-text">Matching Evaluation</h3>
               </div>
-              <h3 className="text-xl font-bold text-presentation-text">Experimental Protocol</h3>
-            </div>
-            
-            <div className="space-y-4 overflow-y-auto max-h-96">
-              {[
-                { 
-                  step: 1, 
-                  title: 'Dataset Preparation', 
-                  desc: 'Audio preprocessing and segmentation',
-                  details: ['Format standardization', 'Quality validation', 'Metadata extraction'],
-                  color: 'blue'
-                },
-                { 
-                  step: 2, 
-                  title: 'Fingerprint Generation', 
-                  desc: 'Create reference database fingerprints',
-                  details: ['Feature extraction', 'Hash computation', 'Index creation'],
-                  color: 'green'
-                },
-                { 
-                  step: 3, 
-                  title: 'Query Processing', 
-                  desc: 'Generate test query fingerprints',
-                  details: ['Noise application', 'Distortion simulation', 'Query preparation'],
-                  color: 'orange'
-                },
-                { 
-                  step: 4, 
-                  title: 'Matching & Identification', 
-                  desc: 'Compare queries against database',
-                  details: ['Similarity computation', 'Threshold optimization', 'Result ranking'],
-                  color: 'purple'
-                },
-                { 
-                  step: 5, 
-                  title: 'Results Collection', 
-                  desc: 'Gather comprehensive metrics',
-                  details: ['Performance logging', 'Error analysis', 'Statistical measures'],
-                  color: 'red'
-                },
-                { 
-                  step: 6, 
-                  title: 'Statistical Analysis', 
-                  desc: 'Analyze and compare results',
-                  details: ['Significance testing', 'Confidence intervals', 'Comparative analysis'],
-                  color: 'indigo'
-                }
-              ].map((item, index) => (
-                <div key={index} className="animate-slide-in-up" style={{ animationDelay: `${1.4 + index * 0.15}s` }}>
-                  <div className={`bg-${item.color}-50 border border-${item.color}-100 rounded-xl p-4 hover:shadow-lg transition-all duration-300 group`}>
-                    <div className="flex items-start space-x-4">
-                      <div className={`w-10 h-10 bg-gradient-to-br from-${item.color}-500 to-${item.color}-600 text-white rounded-xl flex items-center justify-center text-sm font-bold shadow-lg group-hover:scale-105 transition-transform`}>
-                        {item.step}
+              <div className="space-y-4">
+                <div className="bg-blue-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-blue-800 mb-2">Audio Fingerprinting Benchmark Toolkit</h4>
+                  <p className="text-sm text-blue-700 mb-2">Developed by Pexeso (2023)</p>
+                  <div className="text-xs text-blue-600 space-y-1">
+                    <div>• Reference files (original audio)</div>
+                    <div>• Queries (modified versions)</div>
+                    <div>• Annotations (CSV with modifications)</div>
+                  </div>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-800">Evaluation Levels:</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium">Track-Level:</span>
+                        <p className="text-gray-600 text-xs">Match exists regardless of time</p>
                       </div>
-                      <div className="flex-1">
-                        <h4 className={`font-bold text-${item.color}-800 mb-1`}>{item.title}</h4>
-                        <p className={`text-sm text-${item.color}-700 mb-2`}>{item.desc}</p>
-                        <div className="space-y-1">
-                          {item.details.map((detail, detailIndex) => (
-                            <div key={detailIndex} className={`flex items-center text-xs text-${item.color}-600`}>
-                              <div className={`w-1.5 h-1.5 bg-${item.color}-400 rounded-full mr-2`}></div>
-                              {detail}
-                            </div>
-                          ))}
-                        </div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="h-4 w-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium">Segment-Level:</span>
+                        <p className="text-gray-600 text-xs">Time-aligned segment matching</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <CheckCircle className="h-4 w-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                      <div>
+                        <span className="font-medium">Bounding Box-Level:</span>
+                        <p className="text-gray-600 text-xs">Strict query-reference alignment</p>
                       </div>
                     </div>
                   </div>
-                  {index < 5 && (
-                    <div className="flex justify-center py-2 animate-pulse">
-                      <ArrowDown className="h-4 w-4 text-gray-400" />
-                    </div>
-                  )}
                 </div>
-              ))}
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-700"><strong>Metrics:</strong> Precision & Recall (F-score excluded due to limited interpretative value)</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Memory Usage Evaluation */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-purple-100 animate-slide-in-up" style={{ animationDelay: '1s' }}>
+              <div className="flex items-center mb-4">
+                <Database className="h-8 w-8 text-purple-600 mr-3" />
+                <h3 className="text-lg font-bold text-presentation-text">Memory Usage</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-purple-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-purple-800 mb-2">Persistent Storage Analysis</h4>
+                  <p className="text-sm text-purple-700">Required storage after processing reference files</p>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-800">Measurement Approach:</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>Size of generated data (fingerprints, indexes)</div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>Values normalized per second of audio</div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>Uniform dataset for fairness</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-700"><strong>Goal:</strong> Compare efficiency across systems with normalized metrics</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Execution Time Evaluation */}
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 border border-green-100 animate-slide-in-right" style={{ animationDelay: '1.2s' }}>
+              <div className="flex items-center mb-4">
+                <Clock className="h-8 w-8 text-green-600 mr-3" />
+                <h3 className="text-lg font-bold text-presentation-text">Execution Time</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="bg-green-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-green-800 mb-2">Processing Phase Analysis</h4>
+                  <p className="text-sm text-green-700">Time measurement for each phase</p>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="font-semibold text-gray-800">Measured Phases:</h4>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>Fingerprint extraction</div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>Database insertion</div>
+                    </div>
+                    <div className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>Query matching</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-3">
+                  <p className="text-xs text-gray-700 mb-2"><strong>Testing:</strong> 20 iterations (10 ingestion, 10 recognition)</p>
+                  <p className="text-xs text-gray-700"><strong>Metric:</strong> Execution time as % of audio duration</p>
+                </div>
+                <div className="bg-blue-50 rounded-lg p-3">
+                  <p className="text-xs text-blue-700"><strong>Note:</strong> After adding ads, previously excluded algorithms showed improved performance</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
