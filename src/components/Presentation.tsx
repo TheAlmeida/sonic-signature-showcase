@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Volume2, Cpu, Database, BarChart3, Target, CheckCircle, ArrowRight, Mic, AudioWaveform, Settings, Search, Clock, TrendingUp, Users, Lightbulb, MessageCircle, FileText, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -17,11 +18,13 @@ const slides = [
   { id: 'title', title: 'Title', icon: Volume2, component: TitleSlide, color: 'blue' },
   { id: 'agenda', title: 'Agenda', icon: FileText, component: AgendaSlide, color: 'indigo' },
   { id: 'context', title: 'Internship Context', icon: Users, component: ContextSlide, color: 'sky' },
-  { id: 'concepts', title: 'Audio Fingerprinting', icon: Cpu, component: ConceptsSlide, color: 'purple' },
-  { id: 'algorithms', title: 'Algorithm Analysis', icon: Database, component: AlgorithmsSlide, color: 'gray' },
-  { id: 'results', title: 'Results & Findings', icon: TrendingUp, component: ResultsSlide, color: 'blue' },
+  { id: 'concepts', title: 'Core Concepts', icon: Cpu, component: ConceptsSlide, color: 'purple' },
+  { id: 'algorithms', title: 'Analyzed Algorithms', icon: Database, component: AlgorithmsSlide, color: 'gray' },
+  { id: 'methodology', title: 'Evaluation Methodology', icon: Target, component: MethodologySlide, color: 'blue' },
+  { id: 'results', title: 'Experimental Results', icon: TrendingUp, component: ResultsSlide, color: 'blue' },
   { id: 'challenges', title: 'Challenges & Solutions', icon: CheckCircle, component: ChallengesSlide, color: 'red' },
-  { id: 'conclusions', title: 'Conclusions & Future Work', icon: Lightbulb, component: ConclusionsSlide, color: 'green' },
+  { id: 'future', title: 'Future Work', icon: Lightbulb, component: FutureWorkSlide, color: 'indigo' },
+  { id: 'conclusions', title: 'Conclusions', icon: CheckCircle, component: ConclusionsSlide, color: 'green' },
   { id: 'thanks', title: 'Thank You', icon: MessageCircle, component: ThankYouSlide, color: 'purple' },
 ];
 

@@ -7,50 +7,58 @@ const AgendaSlide = () => {
     { 
       icon: Users, 
       title: 'Internship Context', 
-      description: 'Company overview and project objectives',
+      description: 'Host company, goals, and project timeline',
       color: 'blue',
-      duration: '1 min',
-      topics: ['Mediaprobe background', 'Project goals']
+      topics: ['Company background', 'Project objectives', 'Timeline & scope']
     },
     { 
       icon: Cpu, 
-      title: 'Audio Fingerprinting Fundamentals', 
-      description: 'Core concepts and technology overview',
+      title: 'Core Concepts & State of the Art', 
+      description: 'Audio fingerprinting fundamentals',
       color: 'indigo',
-      duration: '2 min',
-      topics: ['Key principles', 'Technical approach']
+      topics: ['Key algorithms', 'Feature extraction', 'Pattern matching']
     },
     { 
       icon: Database, 
-      title: 'Algorithm Analysis', 
-      description: 'Comparison of fingerprinting solutions',
+      title: 'Analyzed Algorithms', 
+      description: 'Six fingerprinting implementations compared',
       color: 'purple',
-      duration: '2 min',
-      topics: ['6 algorithms tested', 'Performance metrics']
+      topics: ['Commercial solutions', 'Open-source libraries', 'Technical approaches']
+    },
+    { 
+      icon: Target, 
+      title: 'Evaluation Methodology', 
+      description: 'Testing framework and procedures',
+      color: 'green',
+      topics: ['Datasets', 'Metrics', 'Testing process']
     },
     { 
       icon: TrendingUp, 
-      title: 'Results & Findings', 
-      description: 'Experimental outcomes and insights',
-      color: 'green',
-      duration: '3 min',
-      topics: ['Accuracy results', 'Speed comparison', 'Best performers']
+      title: 'Experimental Results', 
+      description: 'Performance metrics and analysis',
+      color: 'yellow',
+      topics: ['Precision & recall', 'Speed benchmarks', 'Memory usage']
     },
     { 
       icon: CheckCircle, 
       title: 'Challenges & Solutions', 
-      description: 'Key obstacles and resolutions',
+      description: 'Technical obstacles encountered',
       color: 'red',
-      duration: '1 min',
-      topics: ['Technical hurdles', 'Implementation fixes']
+      topics: ['Configuration issues', 'Data compatibility', 'Optimization needs']
     },
     { 
       icon: Lightbulb, 
-      title: 'Conclusions & Future Work', 
-      description: 'Key insights and recommendations',
+      title: 'Future Work', 
+      description: 'Research direction recommendations',
       color: 'orange',
-      duration: '1 min',
-      topics: ['Main findings', 'Next steps']
+      topics: ['Deep learning', 'Scaling strategies', 'Real-time processing']
+    },
+    { 
+      icon: BarChart3, 
+      title: 'Conclusions', 
+      description: 'Key insights and proposals',
+      color: 'emerald',
+      topics: ['Performance summary', 'Best practices', 'Improvement plan']
     },
   ];
 
@@ -82,7 +90,7 @@ const AgendaSlide = () => {
 
       <div className="relative z-10 max-w-6xl mx-auto h-full py-8 px-12">
         {/* Enhanced Header */}
-        <div className="text-center mb-8 animate-slide-in-up">
+        <div className="text-center mb-10 animate-slide-in-up">
           <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4 animate-fade-in">
             <FileText className="h-4 w-4" />
             <span>Session Overview</span>
@@ -91,12 +99,12 @@ const AgendaSlide = () => {
             Presentation Agenda
           </h1>
           <p className="text-xl text-presentation-text-light animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Comprehensive analysis of audio fingerprinting algorithms
+            A comprehensive overview of the audio fingerprinting analysis project
           </p>
         </div>
 
         {/* Enhanced Agenda Grid */}
-        <div className="grid grid-cols-2 gap-y-4 gap-x-6 mb-6">
+        <div className="grid grid-cols-2 gap-y-6 gap-x-8 mb-8">
           {agendaItems.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -106,31 +114,26 @@ const AgendaSlide = () => {
                 style={{ animationDelay: `${0.6 + index * 0.1}s` }}
               >
                 <div className={`h-1 bg-${item.color}-500 w-full`}></div>
-                <div className="p-5">
+                <div className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className={`flex-shrink-0 w-12 h-12 bg-${item.color}-500/10 rounded-xl flex items-center justify-center border border-${item.color}-200 group-hover:scale-105 transition-transform duration-300`}>
-                      <Icon className={`h-5 w-5 text-${item.color}-600`} />
+                    <div className={`flex-shrink-0 w-14 h-14 bg-${item.color}-500/10 rounded-xl flex items-center justify-center border border-${item.color}-200 group-hover:scale-105 transition-transform duration-300`}>
+                      <Icon className={`h-6 w-6 text-${item.color}-600`} />
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <h3 className={`text-lg font-bold text-presentation-text group-hover:text-${item.color}-700 transition-colors duration-300`}>
+                      <div className="flex items-center justify-between">
+                        <h3 className={`text-lg font-bold text-presentation-text mb-1 group-hover:text-${item.color}-700 transition-colors duration-300`}>
                           {item.title}
                         </h3>
-                        <div className="flex items-center space-x-2">
-                          <span className={`text-xs bg-${item.color}-100 text-${item.color}-800 px-2 py-1 rounded-full font-medium`}>
-                            {item.duration}
-                          </span>
-                          <span className={`text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full font-medium`}>
-                            {index + 1}
-                          </span>
-                        </div>
+                        <span className={`text-xs bg-${item.color}-100 text-${item.color}-800 px-2 py-1 rounded-full font-medium`}>
+                          {index + 1}
+                        </span>
                       </div>
-                      <p className="text-sm text-presentation-text-light mb-2">
+                      <p className="text-sm text-presentation-text-light mb-3">
                         {item.description}
                       </p>
-                      <div className={`flex flex-wrap gap-1 text-xs`}>
+                      <div className={`flex flex-wrap gap-2 text-xs`}>
                         {item.topics.map((topic, topicIndex) => (
-                          <span key={topicIndex} className={`bg-${item.color}-50 text-${item.color}-700 px-2 py-0.5 rounded-md`}>
+                          <span key={topicIndex} className={`bg-${item.color}-50 text-${item.color}-700 px-2 py-1 rounded-md`}>
                             {topic}
                           </span>
                         ))}
@@ -144,19 +147,16 @@ const AgendaSlide = () => {
         </div>
 
         {/* Enhanced Footer */}
-        <div className="text-center animate-slide-in-up" style={{ animationDelay: '1.0s' }}>
+        <div className="text-center animate-slide-in-up" style={{ animationDelay: '1.2s' }}>
           <div className="inline-flex items-center space-x-4 px-8 py-4 bg-gradient-to-r from-blue-500/10 to-indigo-500/10 backdrop-blur-sm rounded-full border border-blue-200">
             <Clock className="h-5 w-5 text-blue-600" />
-            <span className="text-lg font-medium text-blue-800">Total Duration: 10 minutes</span>
+            <span className="text-lg font-medium text-blue-800">Presentation Duration: ~45 minutes</span>
             <div className="flex items-center space-x-1">
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
             </div>
           </div>
-          <p className="text-sm text-gray-500 mt-3">
-            Focused presentation covering essential findings and recommendations
-          </p>
         </div>
       </div>
     </div>
