@@ -6,9 +6,9 @@ const FutureWorkSlide = () => {
   const futureDirections = [
     {
       icon: Brain,
-      title: 'Deep Learning Integration',
-      description: 'Explore neural network architectures for improved feature extraction and matching accuracy',
-      timeline: 'Short-term (6 months)',
+      title: 'AI-Based Algorithms',
+      description: 'Further evaluation of audio fingerprinting systems based on artificial intelligence, such as Neural-Audio-Fingerprint, could offer insights into their maturity, robustness, and real-world applicability compared to traditional spectral methods.',
+      timeline: 'Medium-term',
       priority: 'High',
       color: 'bg-blue-500',
       accentColor: 'blue',
@@ -17,9 +17,9 @@ const FutureWorkSlide = () => {
     },
     {
       icon: Database,
-      title: 'Large-Scale Database Testing',
-      description: 'Evaluate performance with million-track databases and real-time streaming scenarios',
-      timeline: 'Medium-term (1 year)',
+      title: 'Content-Specific Testing',
+      description: 'Expanding the dataset would enable statistical analysis of algorithm performance across different content types (e.g., music, sports, film) and distortion types (e.g., noise, reverb, pitch shifts). A tenfold increase in the reference set would allow more granular and reliable conclusions.',
+      timeline: 'Long-term',
       priority: 'High',
       color: 'bg-green-500',
       accentColor: 'green',
@@ -28,25 +28,14 @@ const FutureWorkSlide = () => {
     },
     {
       icon: Zap,
-      title: 'Real-time Processing',
-      description: 'Optimize algorithms for live audio stream fingerprinting with minimal latency',
-      timeline: 'Medium-term (8 months)',
+      title: 'Parameter Harmonization',
+      description: 'Retesting all algorithms under unified technical conditions—such as identical FFT window sizes, hop sizes, sampling rates, and segmentation thresholds—would ensure fairer comparisons and reveal sensitivity to configuration changes, which is critical for integration in production pipelines.',
+      timeline: 'Short-term',
       priority: 'Medium',
       color: 'bg-orange-500',
       accentColor: 'orange',
       impact: 'High',
       feasibility: 'High'
-    },
-    {
-      icon: Users,
-      title: 'Multi-modal Approaches',
-      description: 'Combine audio fingerprinting with video and metadata analysis for enhanced accuracy',
-      timeline: 'Long-term (2 years)',
-      priority: 'Medium',
-      color: 'bg-purple-500',
-      accentColor: 'purple',
-      impact: 'Transformative',
-      feasibility: 'Low'
     }
   ];
 
@@ -109,33 +98,33 @@ const FutureWorkSlide = () => {
         </div>
 
         {/* Enhanced Future Directions */}
-        <div className="grid grid-cols-2 gap-8 h-3/4 mb-8">
+        <div className="space-y-8 mb-8">
           {futureDirections.map((item, index) => {
             const Icon = item.icon;
             return (
               <div
                 key={index}
-                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 border border-gray-100 animate-scale-in relative overflow-hidden"
+                className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 border border-gray-100 animate-scale-in relative overflow-hidden"
                 style={{ animationDelay: `${0.6 + index * 0.2}s` }}
               >
                 {/* Card Accent */}
                 <div className={`absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-${item.accentColor}-400 to-${item.accentColor}-600`}></div>
                 
                 {/* Header */}
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex items-start justify-between mb-6">
                   <div className="flex items-center">
-                    <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mr-4 shadow-lg`}>
+                    <div className={`w-16 h-16 ${item.color} rounded-2xl flex items-center justify-center mr-6 shadow-lg`}>
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-presentation-text">
+                      <h3 className="text-2xl font-bold text-presentation-text mb-2">
                         {item.title}
                       </h3>
-                      <div className="flex items-center space-x-2 mt-1">
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getPriorityColor(item.priority)}`}>
+                      <div className="flex items-center space-x-2">
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${getPriorityColor(item.priority)}`}>
                           {item.priority} Priority
                         </span>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getImpactColor(item.impact)}`}>
+                        <span className={`px-3 py-1 rounded-full text-sm font-medium ${getImpactColor(item.impact)}`}>
                           {item.impact}
                         </span>
                       </div>
@@ -144,13 +133,13 @@ const FutureWorkSlide = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-presentation-text-light mb-6 leading-relaxed">
+                <p className="text-presentation-text-light mb-6 leading-relaxed text-lg">
                   {item.description}
                 </p>
 
                 {/* Research Metrics */}
-                <div className={`bg-${item.accentColor}-50 rounded-lg p-4 mb-4 border border-${item.accentColor}-100`}>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                <div className={`bg-${item.accentColor}-50 rounded-lg p-4 border border-${item.accentColor}-100`}>
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
                       <span className="font-medium text-gray-600">Timeline:</span>
                       <div className={`font-bold text-${item.accentColor}-700 mt-1`}>{item.timeline}</div>
@@ -161,53 +150,9 @@ const FutureWorkSlide = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Action Indicator */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <div className={`w-3 h-3 ${item.color} rounded-full animate-pulse`}></div>
-                    <span className="text-sm font-medium text-presentation-text">
-                      Research Phase
-                    </span>
-                  </div>
-                  <ArrowRight className="h-5 w-5 text-presentation-secondary" />
-                </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Enhanced Research Goals */}
-        <div className="bg-gradient-to-r from-indigo-50 via-blue-50 to-purple-50 rounded-2xl p-8 border border-indigo-200 animate-slide-in-up" style={{ animationDelay: '1.4s' }}>
-          <div className="flex items-center mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mr-4 shadow-lg">
-              <Lightbulb className="h-6 w-6 text-white" />
-            </div>
-            <h3 className="text-2xl font-bold text-presentation-text">Strategic Research Targets</h3>
-          </div>
-          
-          <div className="grid grid-cols-4 gap-6 text-center">
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-blue-200 hover:shadow-lg transition-all duration-300">
-              <div className="text-3xl font-bold text-blue-600 mb-2">95%+</div>
-              <div className="text-sm text-blue-800 font-medium">Target Accuracy</div>
-              <div className="text-xs text-blue-600 mt-1">Noise robustness</div>
-            </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-green-200 hover:shadow-lg transition-all duration-300">
-              <div className="text-3xl font-bold text-green-600 mb-2">&lt;50ms</div>
-              <div className="text-sm text-green-800 font-medium">Processing Time</div>
-              <div className="text-xs text-green-600 mt-1">Real-time capable</div>
-            </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-purple-200 hover:shadow-lg transition-all duration-300">
-              <div className="text-3xl font-bold text-purple-600 mb-2">10M+</div>
-              <div className="text-sm text-purple-800 font-medium">Database Scale</div>
-              <div className="text-xs text-purple-600 mt-1">Enterprise ready</div>
-            </div>
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-orange-200 hover:shadow-lg transition-all duration-300">
-              <div className="text-3xl font-bold text-orange-600 mb-2">5x</div>
-              <div className="text-sm text-orange-800 font-medium">Efficiency Gain</div>
-              <div className="text-xs text-orange-600 mt-1">Resource optimization</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
